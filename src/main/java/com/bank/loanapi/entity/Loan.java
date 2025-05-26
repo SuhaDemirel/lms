@@ -39,5 +39,6 @@ public class Loan {
 
     @OneToMany(mappedBy = "loan", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OrderBy("dueDate ASC")
+    @Builder.Default
     private List<LoanInstallment> installments = new ArrayList<>();
 }

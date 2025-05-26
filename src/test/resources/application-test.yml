@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: loan-api-test
+
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+  sql:
+    init:
+      mode: never  # Don't load data.sql or import.sql in tests
+
+  h2:
+    console:
+      enabled: false
+
+jwt:
+  secret: testSecretKeyForJWTTokenGenerationMustBeAtLeast256Bits12345
+  expiration: 3600000 # 1 hour for tests
+
+logging:
+  level:
+    com.bank.loanapi: WARN
+    org.springframework.security: WARN

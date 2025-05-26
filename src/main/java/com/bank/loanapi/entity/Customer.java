@@ -30,6 +30,7 @@ public class Customer {
     private BigDecimal usedCreditLimit;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Builder.Default
     private List<Loan> loans = new ArrayList<>();
 
     @OneToOne
